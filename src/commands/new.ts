@@ -5,7 +5,7 @@ const git = simpleGit();
 
 export default class New extends Command {
   static override args = {
-    branch: Args.string({description: 'This is the branch name', required: false})
+    branch: Args.string({description: 'This is branch name', required: false})
   }
 
   static override description = 'Raise a PR'
