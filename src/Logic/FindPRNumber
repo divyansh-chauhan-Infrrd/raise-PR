@@ -1,0 +1,25 @@
+// import {simpleGit} from 'simple-git';
+// const git = simpleGit();
+
+// // Function to retrieve the last PR number from the Git log
+// async function getLastPR() {
+//   try {
+//     // Fetch the Git log, limiting to the most recent 10 commits
+//     const log = await git.log({ n: 10 });
+
+//     // Iterate over the commits to find the first one with a PR number (e.g., #123)
+//     for (let commit of log.all) {
+//       const prNumber = commit.message.match(/#(\d+)/);  // Regex to match #PR_NUMBER
+//       if (prNumber) {
+//         console.log(`The last PR number is: #${prNumber[1]}`);
+//         return `#${prNumber[1]}`;
+//       }
+//     }
+
+//     console.log('No PR found in the recent commits.');
+//   } catch (err) {
+//     console.error('Error retrieving Git log:', err);
+//   }
+// }
+
+
