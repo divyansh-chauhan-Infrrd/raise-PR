@@ -45,9 +45,9 @@ export default class New extends Command {
       await git.push(`origin`,branchName);
       console.log(`Pushing your changes`);
     }
-    const pRNum = getLastPR();
-    console.log(`https://github.com/infer-ai/test-tools-CIDC/pull/${pRNum}`);
-    console.log(`The branch name is ${branchName} and the commit Message is ${commitMessage}`)
+    const pRNum = await getLastPR();
+    await openLink(Number(pRNum));
+    // console.log(`https://github.com/infer-ai/test-tools-CIDC/pull/${pRNum}`);
   }
 
   public async catch(err: CommandError): Promise<any> 
@@ -84,3 +84,18 @@ async function getLastPR() {
     console.error('Error retrieving Git log:', err);
   }
 }
+
+async function openLink(pRNum: number){
+  try {
+    // URL you want to log as a clickable link
+    const url = `https://github.com/infer-ai/test-tools-CIDC/pull/${pRNum}`;
+    
+    // Logging the message with ANSI escape codes to make it clickable
+    console.log(`Click here to visit: \x1b]8;;${url}\x1b\\${url}\x1b]8;;\x1b\\`);
+    
+  } catch (err) {
+    console.error('Error:', err);
+  }
+};
+
+
